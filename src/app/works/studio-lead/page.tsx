@@ -8,6 +8,7 @@ import ProjectBento from '@/components/ProjectBento';
 import ProjectStrip from '@/components/ProjectStrip';
 import ProjectTextHighlight from '@/components/ProjectTextHighlight';
 import ProjectBottom from '@/components/ProjectBottom';
+import ProjectMetrics from '@/components/ProjectMetrics';
 
 export default function Project01() {
   const logos = ['/logo.svg', '/logo-negative.svg', '/logo-colour.svg'];
@@ -151,6 +152,15 @@ export default function Project01() {
               heading: 'Impact',
               body: '• Scaled design operations across 100+ merchants\n• Reduced production friction through clear structure\n• Improved consistency across marketing outputs\n• Enabled faster onboarding for new designers',
             },
+          ]}
+        />
+
+        {/* ===== METRICS ===== */}
+        <ProjectMetrics
+          metrics={[
+            { title: '180+',           body: 'Campaign assets produced weekly' },
+            { title: 'Up to 5 Formats', body: 'Social, EDM, Shop Banner, GIF, and Print — executed across all channels simultaneously' },
+            { title: '100+',           body: 'Restaurant merchants scaled across design operations' },
           ]}
         />
 

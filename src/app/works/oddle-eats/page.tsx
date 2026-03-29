@@ -4,7 +4,6 @@ import ProjectHero from '@/components/ProjectHero';
 import ProjectMeta from '@/components/ProjectMeta';
 import ProjectParagraph from '@/components/ProjectParagraph';
 import ProjectBottom from '@/components/ProjectBottom';
-import ProjectMetrics from '@/components/ProjectMetrics';
 
 export default function OddleEats() {
   const logos = ['/logo.svg', '/logo-negative.svg', '/logo-colour.svg'];
@@ -97,15 +96,6 @@ export default function OddleEats() {
           duration="2021 (4 weeks)"
           extras={[
             { label: 'Platform', value: 'iOS & Android' },
-          ]}
-        />
-
-        {/* ===== METRICS ===== */}
-        <ProjectMetrics
-          metrics={[
-            { title: '180+',          body: 'Campaign assets produced weekly' },
-            { title: 'Up to 5 Formats', body: 'Social, EDM, Shop Banner, GIF, and Print — executed across all channels simultaneously' },
-            { title: '100+',          body: 'Restaurant merchants scaled across design operations' },
           ]}
         />
 

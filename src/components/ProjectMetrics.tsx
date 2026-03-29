@@ -39,10 +39,11 @@ export default function ProjectMetrics({ metrics, eyebrow }: ProjectMetricsProps
           </div>
         )}
 
-        <div className={`grid grid-cols-1 gap-10 ${metrics.length === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-3'}`}>
+        <div className={`flex flex-col sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-zinc-200 ${metrics.length === 2 ? '' : ''}`}>
           {metrics.map((metric, i) => (
             <div
               key={i}
+              className="flex-1 py-8 sm:py-0 sm:px-10 first:pl-0 last:pr-0"
               style={{
                 opacity: 0,
                 animation: visible
@@ -50,9 +51,6 @@ export default function ProjectMetrics({ metrics, eyebrow }: ProjectMetricsProps
                   : 'none',
               }}
             >
-              {/* Horizontal divider */}
-              <div className="h-px bg-zinc-200 mb-6" />
-
               {/* Title with flashlight */}
               <p className="text-flashlight text-5xl font-black leading-none tracking-tight mb-4">
                 {metric.title}
