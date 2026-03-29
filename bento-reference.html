@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bento Grid — Reference</title>
+  <style>
+
+    /* ─── Reset ──────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0f0f0f;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px;
+    }
+
+
+    /* ─── Bento grid ─────────────────────────────────── */
+    .bento {
+      width: 100%;
+      max-width: 1200px;
+      display: grid;
+
+      /*
+       * 3 equal columns.
+       * Rows are intentionally unequal — the height contrast is
+       * what gives the grid its editorial, non-uniform feel.
+       */
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 320px 200px 300px;
+      gap: 12px;
+
+      /*
+       * 6-image layout — alternating Z pattern:
+       *
+       *   [ A wide  ][ A wide  ][ B tall ]
+       *   [ C       ][ D       ][ B tall ]
+       *   [ E wide  ][ E wide  ][ F      ]
+       *
+       * Two hero cells: A (wide, top) and B (tall, right).
+       * E mirrors A at the bottom, bookending the grid.
+       */
+      grid-template-areas:
+        "a a b"
+        "c d b"
+        "e e f";
+    }
+
+    /* ─── Individual cells ───────────────────────────── */
+    .cell {
+      border-radius: 14px;
+      overflow: hidden;       /* clip image to rounded corners */
+      position: relative;
+      background: #1a1a1a;   /* fallback while image loads */
+    }
+
+    .cell img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition:
+        transform 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        filter    600ms ease;
+    }
+
+    .cell:hover img {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    /* ─── Grid area assignments ──────────────────────── */
+    .cell-a { grid-area: a; }   /* wide landscape — top hero */
+    .cell-b { grid-area: b; }   /* tall portrait  — right hero */
+    .cell-c { grid-area: c; }   /* square */
+    .cell-d { grid-area: d; }   /* square */
+    .cell-e { grid-area: e; }   /* wide landscape — bottom */
+    .cell-f { grid-area: f; }   /* square */
+
+
+    /* ─── Mobile: single column ──────────────────────── */
+    @media (max-width: 640px) {
+      .bento {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        grid-template-areas: none;
+        gap: 10px;
+      }
+
+      /* reset all area assignments, give each cell a natural height */
+      .cell {
+        grid-area: auto !important;
+        aspect-ratio: 4 / 3;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="bento">
+
+    <!-- A · Wide hero — 2 cols × 1 row (landscape) -->
+    <div class="cell cell-a">
+      <img src="https://picsum.photos/seed/skyline/1000/420" alt="" />
+    </div>
+
+    <!-- B · Tall hero — 1 col × 2 rows (portrait) -->
+    <div class="cell cell-b">
+      <img src="https://picsum.photos/seed/forest/600/860" alt="" />
+    </div>
+
+    <!-- C · Square -->
+    <div class="cell cell-c">
+      <img src="https://picsum.photos/seed/marble/600/500" alt="" />
+    </div>
+
+    <!-- D · Square -->
+    <div class="cell cell-d">
+      <img src="https://picsum.photos/seed/concrete/600/500" alt="" />
+    </div>
+
+    <!-- E · Wide — 2 cols × 1 row (landscape) -->
+    <div class="cell cell-e">
+      <img src="https://picsum.photos/seed/bridge/1000/420" alt="" />
+    </div>
+
+    <!-- F · Square -->
+    <div class="cell cell-f">
+      <img src="https://picsum.photos/seed/ocean/600/500" alt="" />
+    </div>
+
+  </div>
+
+
+  <!--
+  ═══════════════════════════════════════════════════════
+  ALTERNATE LAYOUTS — swap grid-template-areas + image
+  count to use 4 or 5 images instead of 6.
+  ═══════════════════════════════════════════════════════
+
+  ── 4 images ─────────────────────────────────────────
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 320px 280px;
+  grid-template-areas:
+    "a a b"
+    "c d d";
+
+  Cells: a (wide), b (square), c (square), d (wide)
+  Remove cells e and f from the HTML.
+
+  ── 5 images ─────────────────────────────────────────
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 300px 240px;
+  grid-template-areas:
+    "a b b"
+    "a c d"
+    ... add row 3 if needed, or use 2 rows with a = row-span-2:
+    "a b b"
+    "a c d"   ← a spans both rows, e removed
+
+  Cells: a (tall, left), b (wide, top-right),
+         c (square), d (square)
+  Add a 5th cell by splitting one row, e.g.:
+  grid-template-areas:
+    "a a b"
+    "c d e";
+  grid-template-rows: 340px 280px;
+
+  ═══════════════════════════════════════════════════════
+  -->
+
+</body>
+</html>
