@@ -1,7 +1,7 @@
 # Project Notes — Jolim Portfolio
 
 ## About
-**Jo Lim** — Product and Creative Designer, 15+ years. Singapore, Doha, Manila.
+**Jolim** — Product and Creative Designer, 15+ years. Singapore, Doha, Manila.
 Agency + product background. Combines design system thinking with advertising art direction craft.
 
 ---
