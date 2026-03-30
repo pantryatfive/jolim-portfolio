@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import ProjectHero from '@/components/ProjectHero';
 import ProjectMeta from '@/components/ProjectMeta';
 import ProjectParagraph from '@/components/ProjectParagraph';
+import ProjectGallery from '@/components/ProjectGallery';
+import ProjectMetrics from '@/components/ProjectMetrics';
 import ProjectBottom from '@/components/ProjectBottom';
 
 export default function OddleEats() {
@@ -107,10 +109,31 @@ export default function OddleEats() {
           imageAlt="Illustration of designer at laptop"
         />
 
-      </main>
+        {/* ===== GALLERY ===== */}
+        <ProjectGallery
+          eyebrow="Screens"
+          slides={[
+            { src: '/Project%202/ProjectGallery/projectgallery-1/image-1.jpg', alt: 'Oddle Eats screen 1', caption: 'Home feed — personalised restaurant recommendations' },
+            { src: '/Project%202/ProjectGallery/projectgallery-1/image-2.jpg', alt: 'Oddle Eats screen 2', caption: 'Restaurant detail page' },
+            { src: '/Project%202/ProjectGallery/projectgallery-1/image-3.jpg', alt: 'Oddle Eats screen 3', caption: 'Order tracking' },
+          ]}
+        />
 
-      {/* ===== PROJECT NAVIGATION ===== */}
-      <ProjectBottom currentSlug="oddle-eats" />
+        {/* ===== METRICS ===== */}
+        <ProjectMetrics
+          metrics={[
+            { title: 'TODO', body: 'TODO' },
+            { title: 'TODO', body: 'TODO' },
+            { title: 'TODO', body: 'TODO' },
+          ]}
+        />
+
+        {/* ===== PROJECT NAVIGATION ===== */}
+        <div className="mt-10">
+          <ProjectBottom currentSlug="oddle-eats" />
+        </div>
+
+      </main>
 
       {/* ─── FOOTER ─────────────────────────────────────────────── */}
       <footer style={{ backgroundColor: '#141414' }}>

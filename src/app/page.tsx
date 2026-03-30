@@ -227,7 +227,7 @@ export default function Home() {
 
               {/* Intro Text with Chunked Reveal */}
               <div className="text-center lg:text-left lg:pt-2">
-                <p ref={introTextRef} className="text-2xl text-zinc-800 font-light leading-[1.6] tracking-[0.01em] max-w-[65ch]">
+                <p ref={introTextRef} className="text-[20px] lg:text-[24px] text-zinc-800 font-light leading-[1.6] tracking-[0.01em] max-w-[65ch]">
                   <span className={isAboutVisible ? 'text-chunk-1' : 'opacity-0'}>
                     Hi, I'm <span className="text-zinc-950 font-normal">Jolim</span> — a Product and Creative Designer with{" "}
                     <span className="text-zinc-950 font-normal">15+ years of experience</span>{" "}

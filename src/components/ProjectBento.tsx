@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface BentoImage {
   src: string;
@@ -101,8 +101,7 @@ function BentoCell({ src, alt, index }: { src: string; alt: string; index: numbe
   const [hovered, setHovered] = useState(false);
   return (
     <div
-      className={`bc bc${index}`}
-      style={{ background: greyFallback(index) }}
+      style={{ width: '100%', height: '100%', background: greyFallback(index) }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -120,13 +119,24 @@ function BentoCell({ src, alt, index }: { src: string; alt: string; index: numbe
 export default function ProjectBento({ images, eyebrow }: ProjectBentoProps) {
   const count = Math.min(6, Math.max(4, images.length));
   const items = images.slice(0, count);
+  const [visible, setVisible] = useState(false);
+  const ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) setVisible(true); },
+      { threshold: 0.1 }
+    );
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
 
   return (
-    <section className="pt-28 pb-10">
+    <section ref={ref} className="pt-28 pb-10">
       <style dangerouslySetInnerHTML={{ __html: buildCSS(count) }} />
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20">
         {eyebrow && (
-          <div className="flex items-center gap-4 mb-10">
+          <div className={`flex items-center gap-4 mb-10 ${visible ? 'text-chunk-1' : 'opacity-0'}`}>
             <div className="flex-1 h-px bg-zinc-100" />
             <span className="text-[10px] uppercase tracking-[0.25em] text-zinc-400 shrink-0">
               {eyebrow}
@@ -137,7 +147,16 @@ export default function ProjectBento({ images, eyebrow }: ProjectBentoProps) {
 
         <div className={`bn${count}`}>
           {items.map((img, i) => (
-            <BentoCell key={i} src={img.src} alt={img.alt ?? ''} index={i} />
+            <div
+              key={i}
+              className={`bc bc${i}`}
+              style={{
+                opacity: 0,
+                animation: visible ? `softRise 0.8s ease-out ${i * 80}ms forwards` : 'none',
+              }}
+            >
+              <BentoCell src={img.src} alt={img.alt ?? ''} index={i} />
+            </div>
           ))}
         </div>
       </div>

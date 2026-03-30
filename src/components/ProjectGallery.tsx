@@ -29,7 +29,18 @@ const imgStyle: React.CSSProperties = {
 export default function ProjectGallery({ slides, eyebrow }: ProjectGalleryProps) {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [visible, setVisible] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) setVisible(true); },
+      { threshold: 0.1 }
+    );
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
 
   const prev = () => setCurrent((c) => (c - 1 + slides.length) % slides.length);
   const next = () => setCurrent((c) => (c + 1) % slides.length);
@@ -43,10 +54,10 @@ export default function ProjectGallery({ slides, eyebrow }: ProjectGalleryProps)
   if (!slides.length) return null;
 
   return (
-    <section className="pt-28 pb-10">
+    <section ref={ref} className="pt-28 pb-10">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20">
         {eyebrow && (
-          <div className="flex items-center gap-4 mb-10">
+          <div className={`flex items-center gap-4 mb-10 ${visible ? 'text-chunk-1' : 'opacity-0'}`}>
             <div className="flex-1 h-px bg-zinc-100" />
             <span className="text-[10px] uppercase tracking-[0.25em] text-zinc-400 shrink-0">
               {eyebrow}
@@ -58,7 +69,11 @@ export default function ProjectGallery({ slides, eyebrow }: ProjectGalleryProps)
         {/* Carousel */}
         <div
           className="relative overflow-hidden aspect-[16/9]"
-          style={{ background: greyFallback(current) }}
+          style={{
+            background: greyFallback(current),
+            opacity: 0,
+            animation: visible ? 'softRise 0.8s ease-out 0.3s forwards' : 'none',
+          }}
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
@@ -105,7 +120,13 @@ export default function ProjectGallery({ slides, eyebrow }: ProjectGalleryProps)
         </div>
 
         {/* Caption + dots */}
-        <div className="mt-4 flex items-center justify-between">
+        <div
+          className="mt-4 flex items-center justify-between"
+          style={{
+            opacity: 0,
+            animation: visible ? 'fadeInUp 0.8s ease-out 0.5s forwards' : 'none',
+          }}
+        >
           <p className="text-xs text-zinc-400 leading-relaxed">
             {slides[current].caption ?? ''}
           </p>

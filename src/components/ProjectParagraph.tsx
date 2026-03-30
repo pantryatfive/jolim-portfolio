@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 interface ProjectParagraphProps {
   eyebrow?: string;
@@ -40,17 +40,28 @@ export default function ProjectParagraph({
   showImage = true,
 }: ProjectParagraphProps) {
   const [hovered, setHovered] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const ref = useRef<HTMLElement>(null);
   const hasSideImage = !!src && showImage;
+
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) setVisible(true); },
+      { threshold: 0.1 }
+    );
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
 
   const gridCols = compact
     ? (imagePosition === 'left' ? 'lg:grid-cols-[3fr_4fr]' : 'lg:grid-cols-[4fr_3fr]')
     : 'lg:grid-cols-2';
 
   return (
-    <section className="pt-28 pb-10">
+    <section ref={ref} className="pt-28 pb-10">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20">
         {eyebrow && (
-          <div className="flex items-center gap-4 mb-10">
+          <div className={`flex items-center gap-4 mb-10 ${visible ? 'text-chunk-1' : 'opacity-0'}`}>
             <div className="flex-1 h-px bg-zinc-100" />
             <span className="text-[10px] uppercase tracking-[0.25em] text-zinc-400 shrink-0">
               {eyebrow}
@@ -59,6 +70,7 @@ export default function ProjectParagraph({
           </div>
         )}
 
+        <div className={visible ? 'text-chunk-2' : 'opacity-0'}>
         {hasSideImage ? (
           /* Side image layout (large, 4:3) */
           <div className={`grid grid-cols-1 ${gridCols} gap-12 lg:gap-16 items-start ${imagePosition === 'left' ? 'lg:[&>*:first-child]:order-2' : ''}`}>
@@ -111,6 +123,7 @@ export default function ProjectParagraph({
             </div>
           </div>
         )}
+        </div>
       </div>
     </section>
   );

@@ -42,6 +42,7 @@
 - **Intro text:** 3-chunk sequential fade-up on scroll
 - **Flashlight:** 12s orange gradient sweep — use class `text-flashlight`
 - **Works cards:** `softRise` keyframe — `translateY(12px→0)` + `opacity(0→1)`, ease-out, diagonal stagger 80ms, total 3–4s. On hover: replay at 400ms. Apply to all future works cards.
+- **Clip reveal:** `clipReveal` keyframe — `translateY(105%→0)`, 0.75s spring (`cubic-bezier(0.16,1,0.3,1)`). Wrap target in `overflow-hidden` + inner div with animation. Use for text/mixed-content entrances.
 
 ---
 
@@ -98,7 +99,7 @@ Export from Paper as WebP, place in `ProjectParagraph/projectparagraph-1/`.
 | `ProjectParagraph` | Text block with optional image | `eyebrow?`, `title?`, `body`, `image?`, `imageAlt?`, `src?`, `alt?`, `caption?`, `showCaption?`, `imagePosition?`, `compact?`, `showImage?` |
 | `ProjectParagraphColumns` | 2–3 column text layout | `eyebrow?`, `columns[]` |
 | `ProjectTextHighlight` | Chunked text with staggered fade | `chunks[]`, `showAvatar?` |
-| `ProjectMetrics` | Stat blocks with flashlight title | `metrics[]` (`title`, `body`), `eyebrow?` |
+| `ProjectMetrics` | Stat blocks with flashlight title | `metrics[]` (`title`, `body`), `eyebrow?` — digits-only titles (`180+`) count up; mixed titles (`Up to 5 Formats`) use clip reveal. Per-card scroll observer: mobile = flat 200ms delay, desktop = 80ms stagger. |
 | `ProjectGallery` | Auto-advancing carousel | `slides[]`, `eyebrow?` |
 | `ProjectBento` | Bento grid, 4–6 images | `images[]`, `eyebrow?` |
 | `ProjectStrip` | 1-row image strip, 1–3 images | `images[]`, `eyebrow?` |

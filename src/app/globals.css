@@ -171,6 +171,12 @@ body {
   animation: fadeInUp 0.8s ease-out 0.7s forwards;
 }
 
+/* Clip reveal — text slides up from hidden overflow */
+@keyframes clipReveal {
+  from { transform: translateY(105%); }
+  to   { transform: translateY(0%); }
+}
+
 /* Soft rise — used by animated thumbnails */
 @keyframes softRise {
   from { opacity: 0; transform: translateY(12px); }

@@ -1,7 +1,7 @@
 # Project Notes — Jolim Portfolio
 
 ## About
-**Jo Lim** — Product and Creative Designer, 15+ years. Singapore, Doha, Manila.
+**Jolim** — Product and Creative Designer, 15+ years. Singapore, Doha, Manila.
 Agency + product background. Combines design system thinking with advertising art direction craft.
 
 ---
@@ -21,6 +21,7 @@ Agency + product background. Combines design system thinking with advertising ar
 - Deployed on Vercel (account: `pantryatfive-9313s-projects`)
 - Deploy commands: `vercel` (preview) · `vercel --prod` (production)
 - Local path: `/Volumes/MAC500/Claude Projects/jolim-portfolio`
+- Git account: `pantryatfive` / `pantryatfive@gmail.com` — always use personal, never Oddle work account
 
 ---
 
@@ -64,6 +65,32 @@ Agency + product background. Combines design system thinking with advertising ar
 
 ---
 
+## Component Animations
+
+| Component | Trigger | Eyebrow | Content |
+|---|---|---|---|
+| `ProjectHero` | — | — | None |
+| `ProjectMeta` | Scroll, threshold `0` | — | `fadeUp` 0.8s, 0.35s delay |
+| `ProjectParagraph` | Scroll, threshold `0.1` | `text-chunk-1` | `text-chunk-2` |
+| `ProjectParagraphColumns` | Scroll, threshold `0.1` | `text-chunk-1` | Each column: `fadeInUp` 0.8s, 0.2s stagger (starts 0.5s) |
+| `ProjectTextHighlight` | Scroll, threshold `0.2` | — | Chunks: `text-chunk-1/2/3`; Avatar: `gentlePulse` + `spin` (always on) |
+| `ProjectMetrics` | Per-card scroll observer | — | Digits-only: count-up; Mixed: `clipReveal`; Mobile: 200ms flat delay; Desktop: 80ms stagger |
+| `ProjectGallery` | Scroll, threshold `0.1` | `text-chunk-1` | Carousel: `softRise` 0.8s 0.3s delay; Caption+dots: `fadeInUp` 0.8s 0.5s delay |
+| `ProjectStrip` | Scroll, threshold `0.1` | `text-chunk-1` | Each cell: `softRise` 0.8s, 80ms stagger |
+| `ProjectBento` | Scroll, threshold `0.1` | `text-chunk-1` | Each cell: `softRise` 0.8s, 80ms stagger |
+| `ProjectBottom` | — | — | None |
+
+---
+
+## Coding Notes
+
+- **Responsive typography** — always use a mobile-first scale, never a single fixed `text-[Xpx]`. Pattern: `text-[22px] sm:text-[26px] lg:text-[30px]`. Flag any component that has a fixed font size.
+- **`ProjectBottom`** — must always be the last element *inside* `</main>`, wrapped in `mt-10`. Never outside `</main>`.
+- **Duplicate `style` props** — JSX only accepts one `style` prop per element. Always merge into one object.
+- **Project is on external drive** — local path is `/Volumes/MAC500/Claude Projects/jolim-portfolio`. If drive disconnects, all file operations will fail.
+
+---
+
 ## Known Issues
 - [ ] _(add issues as they come up)_
 
@@ -72,7 +99,7 @@ Agency + product background. Combines design system thinking with advertising ar
 ## Next Steps
 
 - [ ] Refine homepage introduction entrance animation
-- [ ] Add scroll-triggered section entrance animations
+- [x] Add scroll-triggered section entrance animations — all components done
 - [ ] Continue building out `oddle-eats` case study content
 - [ ] Build out `qatar-rail` case study content
 - [ ] Export + add overview illustrations for projects 02 and 03

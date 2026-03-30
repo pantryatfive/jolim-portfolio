@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface StripImage {
   src: string;
@@ -64,12 +64,23 @@ const colClass: Record<number, string> = {
 
 export default function ProjectStrip({ images, eyebrow }: ProjectStripProps) {
   const count = images.length;
+  const [visible, setVisible] = useState(false);
+  const ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) setVisible(true); },
+      { threshold: 0.1 }
+    );
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
 
   return (
-    <section className="pt-28 pb-10">
+    <section ref={ref} className="pt-28 pb-10">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20">
         {eyebrow && (
-          <div className="flex items-center gap-4 mb-10">
+          <div className={`flex items-center gap-4 mb-10 ${visible ? 'text-chunk-1' : 'opacity-0'}`}>
             <div className="flex-1 h-px bg-zinc-100" />
             <span className="text-[10px] uppercase tracking-[0.25em] text-zinc-400 shrink-0">
               {eyebrow}
@@ -79,7 +90,15 @@ export default function ProjectStrip({ images, eyebrow }: ProjectStripProps) {
         )}
         <div className={`grid gap-5 ${colClass[count]}`}>
           {images.map((img, i) => (
-            <StripCell key={i} {...img} />
+            <div
+              key={i}
+              style={{
+                opacity: 0,
+                animation: visible ? `softRise 0.8s ease-out ${i * 80}ms forwards` : 'none',
+              }}
+            >
+              <StripCell {...img} />
+            </div>
           ))}
         </div>
       </div>
