@@ -12,7 +12,8 @@
 ---
 
 ## Layout
-- Outer container: `max-w-[1440px] mx-auto` with `px-6 sm:px-12 lg:px-20`
+- Content components: `max-w-[1200px] mx-auto` with `px-6 sm:px-12 lg:px-20`
+- Header/footer: `max-w-[1280px] mx-auto` with `px-6 sm:px-12 lg:px-20`
 - Section vertical rhythm: `pt-28 pb-10`
 - `ProjectBottom` always gets `mt-10` above it
 
