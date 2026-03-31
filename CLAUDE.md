@@ -7,6 +7,7 @@
 - Orange is an accent only — use sparingly
 - Never add comments, docstrings, or type annotations to code you didn't change
 - Never add error handling for scenarios that can't happen
+- Always use responsive, mobile-first font sizes — never a single fixed `text-[Xpx]`. Pattern: `text-[22px] sm:text-[26px] lg:text-[30px]`
 
 ---
 

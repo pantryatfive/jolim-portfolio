@@ -62,6 +62,13 @@ Agency + product background. Combines design system thinking with advertising ar
 - Fixed works section grey bg — now true full-width bleed outside max-width container
 - Built `ProjectMetrics` — added to oddle-eats with 3 stats
 - Updated oddle-eats hero blurb, overview copy, and ProjectMeta fields
+- Added scroll entrance animations to `ProjectBento` and `ProjectStrip`
+- Fixed duplicate `style` prop bug in `ProjectGallery`
+- Fixed `ProjectBottom` placement in `oddle-eats` (inside `</main>` with `mt-10`)
+- Added stubbed `ProjectMetrics` to `oddle-eats`
+- Responsive font sizing on `ProjectTextHighlight` and homepage intro text
+- Set git account to `pantryatfive` for this repo
+- Created `WEBDESIGN-SKILLS.md` in `~/.claude-personal`
 
 ---
 
