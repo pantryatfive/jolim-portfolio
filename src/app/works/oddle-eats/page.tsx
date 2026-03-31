@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import ProjectHero from '@/components/ProjectHero';
 import ProjectMeta from '@/components/ProjectMeta';
 import ProjectParagraph from '@/components/ProjectParagraph';
+import ProjectParagraphColumns from '@/components/ProjectParagraphColumns';
 import ProjectGallery from '@/components/ProjectGallery';
 import ProjectMetrics from '@/components/ProjectMetrics';
 import ProjectBottom from '@/components/ProjectBottom';
@@ -101,12 +102,26 @@ export default function OddleEats() {
           ]}
         />
 
-        {/* ===== PARAGRAPH ===== */}
+        {/* ===== OVERVIEW ===== */}
         <ProjectParagraph
           eyebrow="Overview"
           body="Oddle powers online ordering for 10,000+ restaurants across Southeast Asia. The product had always lived on the web — functional, but frictionless it was not. In 2021, we set out to build a native mobile app from scratch, targeting Oddle's power users: the frequent orderers who kept coming back despite the web's limitations. This was a 0→1 product build — from first wireframe to App Store submission — on a compressed timeline."
           image="/Project%202/ProjectParagraph/projectparagraph-1/overview@2x.webp"
           imageAlt="Illustration of designer at laptop"
+        />
+
+        {/* ===== COLUMNS ===== */}
+        <ProjectParagraphColumns
+          columns={[
+            {
+              heading: 'Problem Statement',
+              body: 'Power users were ordering regularly, but the web experience made them work for it. No persistent login. No push notifications. No sense of "this app knows me." Every session started from scratch — same address, same preferences, same friction. The opportunity wasn\'t just to go native. It was to build something that actually earned a place on someone\'s home screen.',
+            },
+            {
+              heading: 'My Role & Process',
+              body: 'I led all UI design and visual direction for the app — working directly with the PM and engineering team across a 3-month build cycle from research to handoff. My scope covered: design system architecture (tokens, components, variants), all high-fidelity screens across 10+ flows, the Arsenal + Jost type system, icon set, and Figma prototype for stakeholder alignment and developer handoff. I also designed the interactive specs for loading skeletons and empty states handed off as Lottie-ready annotations.',
+            },
+          ]}
         />
 
         {/* ===== GALLERY ===== */}
@@ -117,6 +132,14 @@ export default function OddleEats() {
             { src: '/Project%202/ProjectGallery/projectgallery-1/image-2.jpg', alt: 'Oddle Eats screen 2', caption: 'Restaurant detail page' },
             { src: '/Project%202/ProjectGallery/projectgallery-1/image-3.jpg', alt: 'Oddle Eats screen 3', caption: 'Order tracking' },
           ]}
+        />
+
+        {/* ===== SOLUTION ===== */}
+        <ProjectParagraph
+          eyebrow="Solution & Design Decisions"
+          body={`The home feed was the hardest screen to get right. I designed it around recommendation transparency — every band labelled with its reason ("Because you ordered from…", "Popular this week") so the algorithm felt considered, not random. The editorial card system supports three layout variants and CMS-driven content, giving Oddle's editors a weekly publishing surface without touching engineering. The Order Tracker Quick View — a sticky bottom sheet surfacing active orders on the home screen — was the signature native moment: one tap to your live order, something the web could never do. Every screen was also designed empty-state-first, making zero-state moments feel intentional rather than broken.
+
+For the design system, I chose Arsenal for display and editorial headlines — its slight stroke contrast pairs naturally with food photography — and Jost for all UI labels and body copy. The component library covers 6 colour tokens, 4 radius values, full card variants (restaurant, editorial, compact list), filter chips, badges, bottom navigation, and a loading skeleton system.`}
         />
 
         {/* ===== METRICS ===== */}

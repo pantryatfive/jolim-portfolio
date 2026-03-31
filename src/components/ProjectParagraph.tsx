@@ -117,7 +117,7 @@ export default function ProjectParagraph({
               {title && (
                 <h3 className="text-2xl font-normal text-zinc-950 leading-snug mb-6">{title}</h3>
               )}
-              <p className="text-lg font-light text-zinc-700 leading-relaxed max-w-3xl whitespace-pre-line">
+              <p className="text-lg font-light text-zinc-700 leading-relaxed max-w-5xl whitespace-pre-line">
                 {body}
               </p>
             </div>
