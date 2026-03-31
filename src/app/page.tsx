@@ -93,7 +93,7 @@ export default function Home() {
     <>
       {/* Sticky Header — full-width bg, constrained content */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-zinc-100">
-        <div className="max-w-[1440px] mx-auto flex items-center justify-between sm:grid sm:grid-cols-3 px-6 sm:px-12 lg:px-20 h-14">
+        <div className="max-w-[1280px] mx-auto flex items-center justify-between sm:grid sm:grid-cols-3 px-6 sm:px-12 lg:px-20 h-14">
           <div className="flex items-center gap-2">
             <img
               src={logoSrc}
@@ -161,7 +161,7 @@ export default function Home() {
 
       {/* Page */}
       <main className="min-h-screen bg-white flex flex-col pt-14">
-        <div className="max-w-[1440px] mx-auto w-full flex flex-col flex-1 px-6 sm:px-12 lg:px-20">
+        <div className="max-w-[1200px] mx-auto w-full flex flex-col flex-1 px-6 sm:px-12 lg:px-20">
 
           {/* Hero */}
           <section className="flex-1 flex flex-col justify-center pt-32 pb-12">
@@ -252,7 +252,7 @@ export default function Home() {
 
         {/* Works — full viewport width, grey bg. Negative mt pulls up so divider straddles the white/grey boundary */}
         <section ref={worksRef} id="works" className="bg-zinc-50 pb-28 mt-[1px]">
-          <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20">
+          <div className="max-w-[1200px] mx-auto px-6 sm:px-12 lg:px-20">
             {/* Divider — straddles white/grey boundary */}
             <div className="flex items-center gap-4 mb-12">
               <div className="flex-1 h-px bg-zinc-200"></div>
@@ -319,7 +319,7 @@ export default function Home() {
       </main>
       {/* Footer */}
       <footer style={{ backgroundColor: '#141414' }}>
-        <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20 py-[57px]">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-12 lg:px-20 py-[57px]">
 
           {/* Main row */}
           <div className="flex flex-col sm:flex-row sm:justify-between gap-[57px] mb-[71px]">

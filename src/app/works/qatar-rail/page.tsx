@@ -37,7 +37,7 @@ export default function QatarRail() {
     <>
       {/* ─── HEADER ─────────────────────────────────────────────── */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-zinc-100">
-        <div className="max-w-[1440px] mx-auto flex items-center justify-between sm:grid sm:grid-cols-3 px-6 sm:px-12 lg:px-20 h-14">
+        <div className="max-w-[1280px] mx-auto flex items-center justify-between sm:grid sm:grid-cols-3 px-6 sm:px-12 lg:px-20 h-14">
           <div className="flex items-center gap-2">
             <img
               src={logoSrc}
@@ -110,7 +110,7 @@ export default function QatarRail() {
 
       {/* ─── FOOTER ─────────────────────────────────────────────── */}
       <footer style={{ backgroundColor: '#141414' }}>
-        <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20 py-[57px]">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-12 lg:px-20 py-[57px]">
           <div className="flex flex-col sm:flex-row sm:justify-between gap-[57px] mb-[71px]">
             <div className="flex flex-col gap-5">
               <p className="text-xs tracking-[0.2em] uppercase text-white font-medium">Jonathan Lim</p>

@@ -35,7 +35,7 @@ export default function ProjectMeta({ project, role, duration, extras = [] }: Pr
 
   return (
     <section ref={ref} className="border-t border-b border-zinc-100">
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20 py-8">
+      <div className="max-w-[1200px] mx-auto px-6 sm:px-12 lg:px-20 py-8">
         <div
           className="flex flex-wrap gap-x-16 gap-y-6"
           style={visible

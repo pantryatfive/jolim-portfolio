@@ -32,6 +32,7 @@ export default function ProjectGallery({ slides, eyebrow }: ProjectGalleryProps)
   const [visible, setVisible] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const ref = useRef<HTMLElement>(null);
+  const touchStartX = useRef<number | null>(null);
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -55,7 +56,7 @@ export default function ProjectGallery({ slides, eyebrow }: ProjectGalleryProps)
 
   return (
     <section ref={ref} className="pt-28 pb-10">
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20">
+      <div className="max-w-[1200px] mx-auto px-6 sm:px-12 lg:px-20">
         {eyebrow && (
           <div className={`flex items-center gap-4 mb-10 ${visible ? 'text-chunk-1' : 'opacity-0'}`}>
             <div className="flex-1 h-px bg-zinc-100" />
@@ -76,6 +77,14 @@ export default function ProjectGallery({ slides, eyebrow }: ProjectGalleryProps)
           }}
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
+          onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; }}
+          onTouchEnd={(e) => {
+            if (touchStartX.current === null) return;
+            const delta = touchStartX.current - e.changedTouches[0].clientX;
+            if (delta > 50) next();
+            else if (delta < -50) prev();
+            touchStartX.current = null;
+          }}
         >
           {/* Slides */}
           <div
@@ -103,17 +112,21 @@ export default function ProjectGallery({ slides, eyebrow }: ProjectGalleryProps)
             <>
               <button
                 onClick={prev}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-9 h-9 bg-zinc-950/80 hover:bg-orange-600 text-white flex items-center justify-center transition-colors"
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 border border-white/30 text-white hover:bg-white hover:text-zinc-950 flex items-center justify-center transition-colors" style={{ backgroundColor: 'rgba(0,0,0,0.40)' }}
                 aria-label="Previous slide"
               >
-                ←
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square">
+                  <polyline points="10,3 5,8 10,13" />
+                </svg>
               </button>
               <button
                 onClick={next}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-9 h-9 bg-zinc-950/80 hover:bg-orange-600 text-white flex items-center justify-center transition-colors"
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 border border-white/30 text-white hover:bg-white hover:text-zinc-950 flex items-center justify-center transition-colors" style={{ backgroundColor: 'rgba(0,0,0,0.40)' }}
                 aria-label="Next slide"
               >
-                →
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square">
+                  <polyline points="6,3 11,8 6,13" />
+                </svg>
               </button>
             </>
           )}

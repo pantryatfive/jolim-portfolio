@@ -6,6 +6,7 @@ import ProjectParagraph from '@/components/ProjectParagraph';
 import ProjectParagraphColumns from '@/components/ProjectParagraphColumns';
 import ProjectGallery from '@/components/ProjectGallery';
 import ProjectMetrics from '@/components/ProjectMetrics';
+import ProjectTextHighlight from '@/components/ProjectTextHighlight';
 import ProjectBottom from '@/components/ProjectBottom';
 
 export default function OddleEats() {
@@ -40,7 +41,7 @@ export default function OddleEats() {
     <>
       {/* ─── HEADER ─────────────────────────────────────────────── */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-zinc-100">
-        <div className="max-w-[1440px] mx-auto flex items-center justify-between sm:grid sm:grid-cols-3 px-6 sm:px-12 lg:px-20 h-14">
+        <div className="max-w-[1280px] mx-auto flex items-center justify-between sm:grid sm:grid-cols-3 px-6 sm:px-12 lg:px-20 h-14">
           <div className="flex items-center gap-2">
             <img
               src={logoSrc}
@@ -145,9 +146,17 @@ For the design system, I chose Arsenal for display and editorial headlines — i
         {/* ===== METRICS ===== */}
         <ProjectMetrics
           metrics={[
-            { title: 'TODO', body: 'TODO' },
-            { title: 'TODO', body: 'TODO' },
-            { title: 'TODO', body: 'TODO' },
+            { title: '78,000+', body: 'Cumulative downloads within six months of launch' },
+            { title: '9+ flows', body: 'Designed across iOS & Android, from zero to App Store submission in one build cycle' },
+            { title: '5,000+', body: 'Completed orders through the app from June to December 2021' },
+          ]}
+        />
+
+        {/* ===== TEXT HIGHLIGHT ===== */}
+        <ProjectTextHighlight
+          chunks={[
+            <>The app launched in September 2021. Within six months, <span className="font-medium text-flashlight">it recorded 78k cumulative downloads, 5k completed orders through the app, and an average of 800k+ monthly active users</span> by delivery date.</>,
+            <>These weren&apos;t just vanity metrics — they confirmed that the core bet was right: give power users a native experience worth returning to, and they will.</>,
           ]}
         />
 
@@ -160,7 +169,7 @@ For the design system, I chose Arsenal for display and editorial headlines — i
 
       {/* ─── FOOTER ─────────────────────────────────────────────── */}
       <footer style={{ backgroundColor: '#141414' }}>
-        <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20 py-[57px]">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-12 lg:px-20 py-[57px]">
           <div className="flex flex-col sm:flex-row sm:justify-between gap-[57px] mb-[71px]">
             <div className="flex flex-col gap-5">
               <p className="text-xs tracking-[0.2em] uppercase text-white font-medium">Jonathan Lim</p>

@@ -31,7 +31,7 @@ export default function ProjectTextHighlight({
 
   return (
     <section ref={ref} className="pt-28 pb-10">
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20">
+      <div className="max-w-[1200px] mx-auto px-6 sm:px-12 lg:px-20">
       <div className={`grid grid-cols-1 gap-12 lg:gap-16 items-start ${showAvatar ? 'lg:grid-cols-[160px_1fr]' : ''}`}>
 
         {/* Avatar — only rendered when showAvatar is true */}

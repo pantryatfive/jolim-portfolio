@@ -59,7 +59,7 @@ export default function ProjectParagraph({
 
   return (
     <section ref={ref} className="pt-28 pb-10">
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20">
+      <div className="max-w-[1200px] mx-auto px-6 sm:px-12 lg:px-20">
         {eyebrow && (
           <div className={`flex items-center gap-4 mb-10 ${visible ? 'text-chunk-1' : 'opacity-0'}`}>
             <div className="flex-1 h-px bg-zinc-100" />
@@ -117,7 +117,7 @@ export default function ProjectParagraph({
               {title && (
                 <h3 className="text-2xl font-normal text-zinc-950 leading-snug mb-6">{title}</h3>
               )}
-              <p className="text-lg font-light text-zinc-700 leading-relaxed max-w-5xl whitespace-pre-line">
+              <p className="text-lg font-light text-zinc-700 leading-relaxed max-w-3xl whitespace-pre-line">
                 {body}
               </p>
             </div>

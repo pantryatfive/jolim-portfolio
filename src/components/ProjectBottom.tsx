@@ -88,7 +88,7 @@ export default function ProjectBottom({ currentSlug }: ProjectBottomProps) {
 
   return (
     <div className="mt-10 border-t border-zinc-100">
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20 py-16">
+      <div className="max-w-[1200px] mx-auto px-6 sm:px-12 lg:px-20 py-16">
         <div className="flex flex-row items-center gap-6 sm:gap-10">
 
           {/* Previous — left-aligned */}
