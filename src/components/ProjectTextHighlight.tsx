@@ -60,7 +60,7 @@ export default function ProjectTextHighlight({
 
         {/* Text */}
         <div className="text-center lg:text-left lg:pt-2">
-          <p className="text-[22px] sm:text-[26px] lg:text-[30px] text-zinc-800 font-light leading-[1.6] tracking-[0.01em] max-w-[65ch]">
+          <p className="text-[22px] sm:text-[26px] lg:text-[28px] text-zinc-800 font-light leading-[1.6] tracking-[0.01em] max-w-[65ch]">
             {chunks.map((chunk, i) => (
               <span key={i} className={visible ? chunkClass[i] : 'opacity-0'}>
                 {chunk}{i < chunks.length - 1 ? ' ' : ''}

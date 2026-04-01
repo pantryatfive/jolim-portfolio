@@ -63,8 +63,9 @@ Every Overview section must include an image:
 <ProjectParagraph
   eyebrow="Overview"
   body="..."
-  image="/Project%20X/ProjectParagraph/projectparagraph-1/overview@2x.webp"
-  imageAlt="Illustration of designer at laptop"
+  src="/Project%20X/ProjectParagraph/projectparagraph-1/overview@2x.webp"
+  alt="Illustration of designer at laptop"
+  imageType="square"
 />
 ```
 Export from Paper as WebP, place in `ProjectParagraph/projectparagraph-1/`.
@@ -98,7 +99,7 @@ Export from Paper as WebP, place in `ProjectParagraph/projectparagraph-1/`.
 |---|---|---|
 | `ProjectHero` | Title + blurb, dark bg | `title`, `blurb` |
 | `ProjectMeta` | Metadata strip | `project`, `role`, `duration?`, `extras[]` |
-| `ProjectParagraph` | Text block with optional image | `eyebrow?`, `title?`, `body`, `image?`, `imageAlt?`, `src?`, `alt?`, `caption?`, `showCaption?`, `imagePosition?`, `compact?`, `showImage?` |
+| `ProjectParagraph` | Text block with optional image | `eyebrow?`, `title?`, `body`, `src?`, `alt?`, `imageType?` (`'square'` or `'side'`, default `'side'`), `caption?`, `showCaption?`, `imagePosition?`, `compact?`, `showImage?` |
 | `ProjectParagraphColumns` | 2–3 column text layout | `eyebrow?`, `columns[]` |
 | `ProjectTextHighlight` | Chunked text with staggered fade | `chunks[]`, `showAvatar?` |
 | `ProjectMetrics` | Stat blocks with flashlight title | `metrics[]` (`title`, `body`), `eyebrow?` — digits-only titles (`180+`) count up; mixed titles (`Up to 5 Formats`) use clip reveal. Per-card scroll observer: mobile = flat 200ms delay, desktop = 80ms stagger. |

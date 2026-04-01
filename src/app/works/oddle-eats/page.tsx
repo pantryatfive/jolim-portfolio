@@ -107,8 +107,9 @@ export default function OddleEats() {
         <ProjectParagraph
           eyebrow="Overview"
           body="Oddle powers online ordering for 10,000+ restaurants across Southeast Asia. The product had always lived on the web — functional, but frictionless it was not. In 2021, we set out to build a native mobile app from scratch, targeting Oddle's power users: the frequent orderers who kept coming back despite the web's limitations. This was a 0→1 product build — from first wireframe to App Store submission — on a compressed timeline."
-          image="/Project%202/ProjectParagraph/projectparagraph-1/overview@2x.webp"
-          imageAlt="Illustration of designer at laptop"
+          src="/Project%202/ProjectParagraph/projectparagraph-1/overview@2x.webp"
+          alt="Illustration of designer at laptop"
+          imageType="square"
         />
 
         {/* ===== COLUMNS ===== */}
@@ -158,6 +159,14 @@ For the design system, I chose Arsenal for display and editorial headlines — i
             <>The app launched in September 2021. Within six months, <span className="font-medium text-flashlight">it recorded 78k cumulative downloads, 5k completed orders through the app, and an average of 800k+ monthly active users</span> by delivery date.</>,
             <>These weren&apos;t just vanity metrics — they confirmed that the core bet was right: give power users a native experience worth returning to, and they will.</>,
           ]}
+        />
+
+        {/* ===== LEARNINGS ===== */}
+        <ProjectParagraph
+          eyebrow="Learnings"
+          body={`The biggest shift was learning to design for context, not content. Early versions of the recommendation feed looked polished but felt cold — restaurants surfaced without explanation. Adding the "Because you ordered from…" label wasn't a copywriting task, it was a UX decision. Context is what turns relevance into trust. That principle has shaped how I think about personalisation ever since.`}
+          src="/Project%202/ProjectParagraph/projectparagraph-2/image-1.jpg"
+          alt="Learnings illustration"
         />
 
         {/* ===== PROJECT NAVIGATION ===== */}

@@ -5,12 +5,9 @@ interface ProjectParagraphProps {
   eyebrow?: string;
   title?: string;
   body: string;
-  // Overview image (small square, left side)
-  image?: string;
-  imageAlt?: string;
-  // Side image (large, 4:3, left or right)
   src?: string;
   alt?: string;
+  imageType?: 'square' | 'side';  // default 'side'
   caption?: string;
   showCaption?: boolean;  // default true
   imagePosition?: 'left' | 'right';
@@ -29,10 +26,9 @@ export default function ProjectParagraph({
   eyebrow,
   title,
   body,
-  image,
-  imageAlt = '',
   src,
   alt = '',
+  imageType = 'side',
   caption,
   showCaption = true,
   imagePosition = 'right',
@@ -42,7 +38,8 @@ export default function ProjectParagraph({
   const [hovered, setHovered] = useState(false);
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLElement>(null);
-  const hasSideImage = !!src && showImage;
+  const hasSideImage = !!src && showImage && imageType === 'side';
+  const hasSquareImage = !!src && showImage && imageType === 'square';
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -106,11 +103,11 @@ export default function ProjectParagraph({
             </div>
           </div>
         ) : (
-          /* Overview / text layout (optional small square image) */
-          <div className={image ? 'flex flex-row items-start lg:items-center gap-8 sm:gap-10 lg:gap-16' : ''}>
-            {image && (
+          /* Text layout with optional small square image */
+          <div className={hasSquareImage ? 'flex flex-row items-start lg:items-center gap-8 sm:gap-10 lg:gap-16' : ''}>
+            {hasSquareImage && (
               <div className="w-[88px] sm:w-[140px] lg:w-[220px] shrink-0 aspect-square overflow-hidden">
-                <img src={image} alt={imageAlt} className="w-full h-full object-contain" />
+                <img src={src} alt={alt} className="w-full h-full object-contain" />
               </div>
             )}
             <div className="flex-1">

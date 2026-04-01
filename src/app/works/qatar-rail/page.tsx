@@ -99,8 +99,9 @@ export default function QatarRail() {
         <ProjectParagraph
           eyebrow="Overview"
           body="Write your overview paragraph here. Explain the problem space, the brief, and the context you were working in."
-          image="/Project%203/ProjectParagraph/projectparagraph-1/overview@2x.webp"
-          imageAlt="Illustration of designer at laptop"
+          src="/Project%203/ProjectParagraph/projectparagraph-1/overview@2x.webp"
+          alt="Illustration of designer at laptop"
+          imageType="square"
         />
 
       </main>

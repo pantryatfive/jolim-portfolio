@@ -104,8 +104,9 @@ export default function Project01() {
         <ProjectParagraph
           eyebrow="Overview"
           body="Oddle's managed marketing service required consistent, high-quality campaign assets across a growing number of merchants. Without structure, files were difficult to track, output quality varied across designers, and scaling production created operational friction."
-          image="/Project%201/ProjectParagraph/projectparagraph-1/overview@2x.webp"
-          imageAlt="Illustration of designer at laptop"
+          src="/Project%201/ProjectParagraph/projectparagraph-1/overview@2x.webp"
+          alt="Illustration of designer at laptop"
+          imageType="square"
         />
 
         {/* ===== PARAGRAPH COLUMNS ===== */}

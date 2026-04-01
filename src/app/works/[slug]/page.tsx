@@ -118,8 +118,9 @@ export default function ProjectTemplate() {
         <ProjectParagraph
           eyebrow="Overview"
           body="Write your overview paragraph here. Explain the problem space, the brief, and the context you were working in.\n\nYou can add a second paragraph by using a line break in the string. Keep it concise — this is editorial, not a report."
-          image="/Project%20X/ProjectParagraph/projectparagraph-1/overview@2x.webp"
-          imageAlt="Illustration of designer at laptop"
+          src="/Project%20X/ProjectParagraph/projectparagraph-1/overview@2x.webp"
+          alt="Illustration of designer at laptop"
+          imageType="square"
         />
 
         {/* ===== PARAGRAPH + IMAGE (image right) =========================
