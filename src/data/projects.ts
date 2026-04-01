@@ -16,7 +16,7 @@ export const PROJECTS: (Project | { title: null; slug: null })[] = [
   { title: 'Studio Design Leadership', slug: 'studio-lead' },
   { title: 'Oddle Eats App', slug: 'oddle-eats' },
   { title: 'Qatar Rail', slug: 'qatar-rail' },
-  { title: null, slug: null },
+  { title: 'Qatar Airways Destination', slug: 'qatar-airways' },
   { title: null, slug: null },
   { title: null, slug: null },
 ];

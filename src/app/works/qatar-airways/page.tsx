@@ -4,11 +4,9 @@ import ProjectHero from '@/components/ProjectHero';
 import ProjectMeta from '@/components/ProjectMeta';
 import ProjectParagraph from '@/components/ProjectParagraph';
 import ProjectParagraphColumns from '@/components/ProjectParagraphColumns';
-import ProjectMetrics from '@/components/ProjectMetrics';
-import ProjectTextHighlight from '@/components/ProjectTextHighlight';
 import ProjectBottom from '@/components/ProjectBottom';
 
-export default function QatarRail() {
+export default function QatarAirways() {
   const logos = ['/logo.svg', '/logo-negative.svg', '/logo-colour.svg'];
   const [logoSrc, setLogoSrc] = useState('/logo.svg');
   const [logoVisible, setLogoVisible] = useState(true);
@@ -88,70 +86,70 @@ export default function QatarRail() {
 
         {/* ===== HERO ===== */}
         <ProjectHero
-          title="Qatar Rail"
-          blurb="A city-wide public information campaign designed to build trust and excitement around one of the Gulf's most ambitious infrastructure projects — the Doha Metro and Lusail Tram."
+          title="Qatar Airways Destination"
+          blurb="A creative pitch for Qatar Airways — designed to shift how travellers think about choosing a destination, from logistics to longing. My scope: Design and Art Direction for the digital component."
         />
 
         {/* ===== META ===== */}
         <ProjectMeta
-          project="Qatar Rail"
-          role="Art Direction, Graphic Design"
+          project="Qatar Airways"
+          role="Design & Art Direction (Digital)"
           extras={[
-            { label: 'Deliverables', value: 'Print, OOH, Social Media, Newspaper' },
-            { label: 'Team', value: 'Creative Director, Art Director, Graphic Design (Me), English Copy, Arabic Copy' },
+            { label: 'Type', value: 'Creative Pitch' },
+            { label: 'Deliverables', value: 'Graphic Design, Presentation Design' },
+            { label: 'Team', value: 'Creative Director: Julien Gillet, Art Direction (Print): Jawad Ghrayeb, English Copy: Cal Sinclair, Arabic Copy: Naser Al-Khalaileh, Design & Art Direction (Digital): Me' },
           ]}
         />
 
         {/* ===== OVERVIEW ===== */}
         <ProjectParagraph
           eyebrow="Overview"
-          body="Qatar Rail was building the Doha Metro and Lusail Tram — a generational infrastructure project reshaping how a city moves. But construction timelines are long, and public patience is short. The challenge wasn't just to build a metro; it was to keep the public informed, invested, and excited through every milestone along the way. I worked on the Public Information campaign: a sustained art direction and graphic design effort across print, out-of-home, and social media, giving residents of Qatar a front-row seat to the project's progress."
-          src="/Project%203/ProjectParagraph/projectparagraph-1/overview@2x.webp"
+          body="Over 40% of travellers bounce between dreaming and planning before they book. And 1 in 3 hasn't even settled on a destination when they first start looking. Qatar Airways wanted to meet people at that earlier, more emotional moment — before the spreadsheet, before the price comparison. The brief: make the network of 150+ destinations feel less like a catalogue and more like an invitation."
+          src="/Project%204/ProjectParagraph/projectparagraph-1/overview@2x.webp"
           alt="Illustration of designer at laptop"
           imageType="square"
         />
 
-        {/* ===== COLUMNS ===== */}
+        {/* ===== DESIGN RATIONALE ===== */}
+        <ProjectParagraph
+          eyebrow="Design Rationale"
+          body="The opportunity wasn't just to promote destinations — it was to give travel another dimension. Less about where Qatar Airways flies, more about why you'd want to go at all. The campaign idea came down to a single device: an epic landscape, and a small box in the frame reading &quot;You Could Be Here.&quot; Not a tagline. A placement. It puts the reader inside the image, makes the distance feel personal, and turns browsing into longing. Wanderlust first, booking second."
+        />
+
+        {/* ===== OPTION A ===== */}
+        <ProjectParagraph
+          eyebrow="Option A"
+          body={`The brief was to make Qatar Airways' network of 150+ destinations feel less like a catalogue and more like an invitation. The insight driving the work: over 40% of travellers bounce between dreaming and planning before they book, and 1 in 3 hasn't even settled on a destination when they first start looking. That's the moment we designed for — before the spreadsheet, before the price comparison. The campaign led with scale: epic landscape photography, a single "You Could Be Here" callout placing the reader inside the image. No hard sell. Just a reminder that the distance between where you are and where you want to be is smaller than it looks. The digital component extended the idea into function — a web app that let travellers filter by what they were looking for, with real Qatar Airways data and live booking built in. Dream-to-book in a single flow.`}
+        />
+
+        {/* ===== OPTION B ===== */}
         <ProjectParagraphColumns
+          eyebrow="Option B"
           columns={[
             {
-              heading: 'The Brief',
-              body: 'Increase public awareness of Qatar Rail\'s projects and communicate key milestones as they happened. The campaign needed to work across multiple channels — full-page newspaper spreads, large-format OOH, and social media — reaching audiences with different levels of familiarity with the project. Every piece had to feel authoritative and clear, while building genuine excitement for what was coming.',
+              heading: 'The Concept',
+              body: 'The campaign led with wanderlust, not logistics. Epic landscape photography anchored by a single "You Could Be Here" device placed the reader inside the destination — making Qatar Airways feel less like a carrier and more like a passport to somewhere worth going.',
             },
             {
               heading: 'My Role',
-              body: 'I led art direction and graphic design across the campaign. This meant developing the visual language for progress updates and milestone announcements — translating engineering achievements into communications that resonated with a general public audience. The flagship output was a series of full-page print campaign spreads giving Qatar residents their first look at the metro and tram designs.',
+              body: 'I designed and art directed the digital component of the pitch — a web app that moved the concept from feeling to function. Travellers filter by what they\'re after; results surface real QA destinations with live booking built in. I also contributed to the overall visual direction of the pitch presentation.',
             },
           ]}
         />
 
-        {/* ===== METRICS ===== */}
-        <ProjectMetrics
-          eyebrow="Campaign Results"
-          metrics={[
-            { title: '60%', body: 'Advertising recall for the Doha Metro across OOH and newspaper placements — well above the industry average of ~40%' },
-            { title: '65%', body: 'Of survey respondents learned about Qatar Rail\'s projects through our social media and newspaper advertisements' },
-            { title: '+15%', body: 'Increase in press coverage year-on-year — 32 additional articles on local media vs. 2015' },
-          ]}
-        />
-
-        {/* ===== TEXT HIGHLIGHT ===== */}
-        <ProjectTextHighlight
-          chunks={[
-            <>The campaign landed at scale. <span className="font-medium text-flashlight">65% of respondents traced their awareness of Qatar Rail directly back to our ads</span> — across newspapers, billboards, and social. Recall for the Doha Metro reached 60% for OOH and press placements alone.</>,
-            <>More than awareness, the campaign created a media moment. Press coverage grew 15% year-on-year, adding 32 new articles to the conversation. The public wasn&apos;t just informed — they were paying attention.</>,
-          ]}
-        />
-
-        {/* ===== LEARNINGS ===== */}
+        {/* ===== OPTION C ===== */}
         <ProjectParagraph
-          eyebrow="Learnings"
-          body="Working at this scale — national press, billboards, social — strips away a lot of the safety nets. You can't explain yourself. The work either lands or it doesn't. Knowing that 65% of people traced their awareness of Qatar Rail back to our ads is a proof point I still carry: at scale, clarity isn't just a nice-to-have. It's the whole job."
+          eyebrow="Option C"
+          body={`The insight driving the pitch: 1 in 3 travellers hasn't settled on a destination when they first start looking. Over 40% are still bouncing between dreaming and planning. That's the moment we designed for. The campaign led with scale — epic landscape photography, a single "You Could Be Here" callout that placed the reader inside the image. Less about where Qatar Airways flies, more about why you'd want to go. The brief was to make 150+ destinations feel like an invitation, not a dropdown menu.`}
+        />
+
+        <ProjectParagraph
+          body="My role covered design and art direction for the digital side of the pitch. The web app extended the campaign concept into something functional: travellers filter destinations by what they're actually looking for, and results pull from real Qatar Airways data — with booking built directly into the flow. The idea was to close the gap between inspiration and action, keeping the emotional thread of the campaign intact all the way to the purchase."
         />
 
         {/* ===== PROJECT NAVIGATION ===== */}
         <div className="mt-10">
-          <ProjectBottom currentSlug="qatar-rail" />
+          <ProjectBottom currentSlug="qatar-airways" />
         </div>
 
       </main>
